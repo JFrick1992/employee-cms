@@ -2,25 +2,26 @@ const db = require('./../config')
 
 const employee = {
     getAll(cb) {
-        db.query('SELECT * FROM employees', (err, items) => {
+        db.query('SELECT * FROM employees', (err, emps) => {
             if (err) throw err
             // return items
-            cb(items)
+            cb(emps)
         })
     },
-    createDepartment(dept, cb) {
-        db.query('INSERT INTO employees SET ?', dept, err => {
+    createEmployee(emp, cb) {
+        db.query('INSERT INTO employees SET ?', emp, err => {
             if (err) throw err
+            console.log('CREATED: ' + emp)
             cb()
         })
     },
-    updateItem(updates, id, cb) {
+    updateEmployee(updates, id, cb) {
         db.query('UPDATE employees SET ? WHERE ?', [updates, { id: id }], err => {
             if (err) throw err
             cb()
         })
     },
-    deleteItem(id, cb) {
+    deleteEmployee(id, cb) {
         db.query('DELETE FROM employees WHERE ?', { id: id }, err => {
             if (err) throw err
             cb()

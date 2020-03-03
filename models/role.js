@@ -8,8 +8,8 @@ const role = {
             cb(items)
         })
     },
-    createDepartment(dept, cb) {
-        db.query('INSERT INTO roles SET ?', dept, err => {
+    createRole(role, cb) {
+        db.query('INSERT INTO roles SET ?', role, err => {
             if (err) throw err
             cb()
         })
