@@ -1,1 +1,1 @@
-const departments = require('./models/departments.js')
+const {employee, departments, role} = require('./models')

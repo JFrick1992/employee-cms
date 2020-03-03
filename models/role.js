@@ -1,31 +1,31 @@
 const db = require('./../config')
 
-const employee = {
+const role = {
     getAll(cb) {
-        db.query('SELECT * FROM employees', (err, items) => {
+        db.query('SELECT * FROM roles', (err, items) => {
             if (err) throw err
             // return items
             cb(items)
         })
     },
     createDepartment(dept, cb) {
-        db.query('INSERT INTO employees SET ?', dept, err => {
+        db.query('INSERT INTO roles SET ?', dept, err => {
             if (err) throw err
             cb()
         })
     },
     updateItem(updates, id, cb) {
-        db.query('UPDATE employees SET ? WHERE ?', [updates, { id: id }], err => {
+        db.query('UPDATE roles SET ? WHERE ?', [updates, { id: id }], err => {
             if (err) throw err
             cb()
         })
     },
     deleteItem(id, cb) {
-        db.query('DELETE FROM employees WHERE ?', { id: id }, err => {
+        db.query('DELETE FROM roles WHERE ?', { id: id }, err => {
             if (err) throw err
             cb()
         })
     }
 }
 
-module.exports = employee
+module.exports = role
