@@ -4,7 +4,6 @@ const department = {
   getAll(cb) {
     db.query('SELECT * FROM departments', (err, items) => {
       if (err) throw err
-      // return items
       cb(items)
     })
   },
